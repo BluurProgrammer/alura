@@ -1,27 +1,17 @@
 <?php include("cabecalho.php"); ?>
 <?php include("logica-usuario.php"); ?>
 
-<?php
-if(isset($_GET["login"]) && $_GET["login"]==true) {
+<?php if(isset($_SESSION["success"])) {?>
+    <p class="alert-success"><?= $_SESSION["success"]?></p>
+<?php } ?>
+<?php 
+    unset($_SESSION["success"]);
 ?>
-<p class="alert-success">Logado com sucesso!</p>
-<?php
-}
-?>
-
-<?php
-if(isset($_GET["logout"]) && $_GET["logout"]==true) {
-?>
-<p class="alert-danger">Deslogado com sucesso</p>
-<?php    }
-?>
-
-<?php
-if(isset($_GET["login"]) && $_GET["login"]==false) {
-?>
-<p class="alert-danger">Usuário ou senha inválida!</p>
-<?php
-}
+<?php if(isset($_SESSION["danger"])) {?>
+    <p class="alert-danger"><?= $_SESSION["danger"]?></p>
+<?php } ?>
+<?php 
+    unset($_SESSION["danger"]);
 ?>
 
 <h1>Seja bem Vindo!</h1>
@@ -68,8 +58,6 @@ if(isset($_GET["falhaDeSeguranca"])) {
 <?php
 }
 ?>
-
-
 
 <?php include("rodape.php"); ?>
 
