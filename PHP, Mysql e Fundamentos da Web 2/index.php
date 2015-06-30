@@ -1,17 +1,9 @@
-<?php include("cabecalho.php"); ?>
-<?php include("logica-usuario.php"); ?>
+<?php include("cabecalho.php"); 
+include("logica-usuario.php"); ?>
 
-<?php if(isset($_SESSION["success"])) {?>
-    <p class="alert-success"><?= $_SESSION["success"]?></p>
-<?php } ?>
-<?php 
-    unset($_SESSION["success"]);
-?>
-<?php if(isset($_SESSION["danger"])) {?>
-    <p class="alert-danger"><?= $_SESSION["danger"]?></p>
-<?php } ?>
-<?php 
-    unset($_SESSION["danger"]);
+<?php  
+    mostraAlerta("success");
+    mostraAlerta("danger");
 ?>
 
 <h1>Seja bem Vindo!</h1>
