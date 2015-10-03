@@ -1,0 +1,107 @@
+Saber qual diretório estou:
+---------------------------
+pwd
+
+
+Lista arquivos e diretórios:
+---------------------------
+ls
+ls -l    lista os arquivos e diretórios com mais informações
+ls -ls   mostra até os arquivos e diretórios ocultos
+
+
+
+Redirencionar a saída para outro lugar:
+---------------------------------------
+>      sobrescreve o arquivo
+>>	   concatena o conteudo no arquivo
+
+
+
+Mostrar conteúdo de um arquivo:
+-------------------------------
+cat
+
+
+
+Mudar de diretório:
+-------------------
+cd (change directori)
+cd ..   diretório anterior
+cd .	diretório atual
+
+
+
+Criar diretório:
+----------------
+mkdir
+
+
+
+Caractere coringa:
+------------------
+*
+
+
+Remover arquivo e diretório:
+----------------------------
+rm
+rm -R   recursivo
+
+
+Encerrar processo:
+------------------
+kill -9 + ID
+killall top
+
+
+
+Processo em execução:
+---------------------
+ps -ef 
+pstree
+
+
+Procucar arquivo:
+-----------------
+locate
+sudo updatedb    atualiza o banco de dados de arquivos
+
+
+
+Localiza onde o programa esta instalado:
+----------------------------------------
+which
+
+
+
+Variável de ambiente padrão para colocar programas:
+---------------------------------------------------
+/usr/bin
+
+
+
+Adicionar usuário:
+-----------------
+adduser + [nome do usuário]
+chmod o-rx jose    retira permissão de outros usuários do diretório jose
+
+
+
+Path:
+-----
+env | grep PATH
+gedit .bashrc &    PATH=$PATH:/home/guilherme/workspace
+
+
+
+
+APT:
+----
+apt-cache search ftp
+
+
+
+Boot Auto start:
+----------------
+/etc/init.d/
