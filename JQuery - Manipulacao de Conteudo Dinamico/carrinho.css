@@ -37,6 +37,13 @@ td {
 	border-bottom: 1px solid #ddd;
 }
 
+.hovering {
+	background: #ccc;
+}
+
+.recuperado {
+	background: #b7ff49;
+}
 
 .propaganda td {
 	background: #9F0;
