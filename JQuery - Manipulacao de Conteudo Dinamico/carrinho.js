@@ -56,12 +56,19 @@ var undo = function() {
 
 var daDestaque = function() {
 	$(this).addClass("hovering");
+	$(this).find(".remove-item").fadeIn();
 }
 
 var tiraDestaque = function() {
 	$(this).removeClass("hovering");
+	$(this).find(".remove-item").fadeOut();
 }
 
+var alternaPropagandas = function(event) {
+	event.preventDefault();
+	$(".propaganda").fadeToggle(2000);
+	$(".alterna-propaganda").toggle();
+}
 
 var aposInicializado = function() {
 	atualizaDados();
@@ -73,6 +80,7 @@ var aposInicializado = function() {
 		});
 	});
 	$("tr").hover(daDestaque, tiraDestaque);
+	$(".alterna-propaganda").click(alternaPropagandas);
 };
 
 $(aposInicializado);
