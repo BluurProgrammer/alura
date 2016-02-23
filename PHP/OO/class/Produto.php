@@ -6,8 +6,6 @@
 		public $descricao;
 		public $categoria;
 		public $usado = false;
-		public $isbn;
-		private $tipoProduto;
 
 		function __construct($nome = "Produto indefinido", $preco = 999, $descricao = "Contate o administrador", Categoria $categoria, $usado = "true") {
 			$this->nome = $nome;
@@ -42,12 +40,12 @@
 			return $this->preco;
 		}
 
-		public function setTipoProduto($tipo) {
-			$this->tipoProduto = $tipo;
+		public function temIsbn() {
+			return $this instanceof Livro;
 		}
 
-		public function getTipoProduto() {
-			return $this->tipoProduto;
+		public function calculaImposto() {
+			return $this->getPreco() * 0.195;
 		}
 	}
 ?>

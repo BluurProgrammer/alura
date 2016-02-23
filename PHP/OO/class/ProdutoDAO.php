@@ -17,7 +17,13 @@ class ProdutoDAO {
 			$categoria = new Categoria();
 			$categoria->nome = $produto_atual['categoria_nome'];
 
-			$produto = new Produto($produto_atual['nome'], $produto_atual['preco'], $produto_atual['descricao'],$categoria, $produto_atual['usado']);
+			if ($produto_atual['tipoProduto'] == "Livro") {
+					$produto = new Livro($produto_atual['nome'], $produto_atual['preco'], $produto_atual['descricao'],$categoria, $produto_atual['usado']);
+					$produto->isbn = $produto_atual['isbn'];
+				} else {
+					$produto = new Produto($produto_atual['nome'], $produto_atual['preco'], $produto_atual['descricao'],$categoria, $produto_atual['usado']);
+				}	
+
 			$produto->id = $produto_atual['id'];
 
 			array_push($produtos, $produto);
@@ -26,7 +32,15 @@ class ProdutoDAO {
 	}
 
 	function insereProduto($produto) {
-		$query = "insert into produtos (nome, preco, descricao, categoria_id, usado, isbn, tipoProduto) values ('{$produto->nome}', {$produto->getPreco()}, '{$produto->descricao}', {$produto->categoria->id}, {$produto->usado}, '{$produto->isbn}', '{$produto->getTipoProduto()}')";
+		if ($produto->temIsbn()) {
+			$isbn = $produto->isbn;
+		} else {
+			$isbn = null;
+		}
+
+		$tipoProduto = get_class($produto);
+
+		$query = "insert into produtos (nome, preco, descricao, categoria_id, usado, isbn, tipoProduto) values ('{$produto->nome}', {$produto->getPreco()}, '{$produto->descricao}', {$produto->categoria->id}, {$produto->usado}, '{$isbn}', '{$tipoProduto}')";
 		return mysqli_query($this->conexao, $query);
 	}
 
@@ -42,8 +56,9 @@ class ProdutoDAO {
 	}
 
 	function alteraProduto($produto){
-		$query = "update produtos set nome = '{$produto->nome}', preco = {$produto->preco}, descricao = '{$produto->descricao}', 
+		$query = "update produtos set nome = '{$produto->nome}', preco = {$produto->getPreco()}, descricao = '{$produto->descricao}', 
 		          categoria_id = '{$produto->categoria->id}', usado = {$produto->usado} where id = '{$produto->id}'";
+		          echo $query;
 		return mysqli_query($this->conexao, $query);
 	}
 

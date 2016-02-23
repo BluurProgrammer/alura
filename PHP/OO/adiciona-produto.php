@@ -17,13 +17,11 @@ include("logica-usuario.php");
 		$usado = 0;
 	}
 	
-	$produto = new Produto($_POST["nome"],$_POST["preco"],$_POST["descricao"],$categoria,$usado);
-	$produto->setTipoProduto($_POST['tipoProduto']);
-
 	if ($_POST['tipoProduto'] == "Livro") {
+		$produto = new Livro($_POST["nome"],$_POST["preco"],$_POST["descricao"],$categoria,$usado);
 		$produto->isbn = $_POST['isbn'];
 	} else {
-		$produto->isbn = null;
+		$produto = new Produto($_POST["nome"],$_POST["preco"],$_POST["descricao"],$categoria,$usado);
 	}
 
 	$produtoDao = new ProdutoDAO($conexao);
@@ -33,7 +31,7 @@ include("logica-usuario.php");
 
 		<?php } else { 
 			$msg = mysqli_error($conexao);
-		?>
+		?> 
 		<p class="text-danger">Produto <?= $produto->nome;?>,<?= $produto->getPreco();?> não foi adicionado:! <?= $msg;?></p>	
 		<?php } 
 
