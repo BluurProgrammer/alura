@@ -17,8 +17,11 @@ include("logica-usuario.php");
 		$usado = 0;
 	}
 	
-	if ($_POST['tipoProduto'] == "Livro") {
+	if ($_POST['tipoProduto'] == "LivroFisico") {
 		$produto = new Livro($_POST["nome"],$_POST["preco"],$_POST["descricao"],$categoria,$usado);
+		$produto->isbn = $_POST['isbn'];
+	} else if ($_POST['tipoProduto'] == "Ebook") {
+		$produto = new Ebook($_POST["nome"],$_POST["preco"],$_POST["descricao"],$categoria,$usado);
 		$produto->isbn = $_POST['isbn'];
 	} else {
 		$produto = new Produto($_POST["nome"],$_POST["preco"],$_POST["descricao"],$categoria,$usado);

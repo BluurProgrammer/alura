@@ -11,15 +11,15 @@
 	<td><textarea class="form-control" name="descricao"><?=$produto['descricao']?></textarea></td>
 </tr>
 <tr>
-	<td></td>
-	<td>
+	<td>Usado</td>
+	<td style="text-align: left;">
 		<input type="checkbox" name="usado" <?=$usado?> value="true"> Usado
 	</td>
 </tr>
 <tr>
 	<td>Categoria</td>
 	<td>
-		<select name="categoria_id" class="form-control">
+		<select name="categoria_id" class="form-control" style="text-transform: capitalize;">
 			<?php 
 				foreach ($categorias as $categoria) : 
 				$essaEhACategoria = $produto['categoria_id'] == $categoria['id'];
@@ -35,13 +35,19 @@
 <tr>
 	<td>Tipo de produto</td>
 	<td>
-		<select name="tipoProduto">
-			<option value="Livro">Livro</option>
+		<select name="tipoProduto" class="form-control">
+			<optgroup label="Livros">
+				<option value="LivroFisico">Livro Fisico</option>
+				<option value="Ebook">Ebook</option>
+			</optgroup>
 			<option value="Produto">Produto</option>
 		</select>
 	</td>
 </tr>
 <tr>
 	<td>ISBN (Se for Livro)</td>
-	<td><input type="text" name="isbn"></td>
+	<td><input type="text" name="isbn" class="form-control"></td>
 </tr>
+
+
+

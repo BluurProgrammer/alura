@@ -17,10 +17,14 @@ class ProdutoDAO {
 			$categoria = new Categoria();
 			$categoria->nome = $produto_atual['categoria_nome'];
 
-			if ($produto_atual['tipoProduto'] == "Livro") {
-					$produto = new Livro($produto_atual['nome'], $produto_atual['preco'], $produto_atual['descricao'],$categoria, $produto_atual['usado']);
+			if($produto_atual['tipoProduto'] == "LivroFisico") {
+					$produto = new LivroFisico($produto_atual['nome'], $produto_atual['preco'], $produto_atual['descricao'],$categoria, $produto_atual['usado']);
 					$produto->isbn = $produto_atual['isbn'];
-				} else {
+			} 
+			else if ($produto_atual['tipoProduto'] == "Ebook") {
+					$produto = new Ebook($produto_atual['nome'], $produto_atual['preco'], $produto_atual['descricao'],$categoria, $produto_atual['usado']);
+					$produto->isbn = $produto_atual['isbn'];
+			} else {
 					$produto = new Produto($produto_atual['nome'], $produto_atual['preco'], $produto_atual['descricao'],$categoria, $produto_atual['usado']);
 				}	
 

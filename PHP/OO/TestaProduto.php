@@ -2,6 +2,7 @@
 require_once("class/ProdutoDAO.php");
 require_once("class/Produto.php");
 require_once("class/Categoria.php");
+include("conecta.php");
 	
 	$produtoDao = new ProdutoDAO($conexao);
 
