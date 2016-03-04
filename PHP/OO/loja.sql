@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: 07-Fev-2016 às 02:00
+-- Generation Time: 28-Fev-2016 às 00:23
 -- Versão do servidor: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -52,17 +52,21 @@ CREATE TABLE `produtos` (
   `preco` decimal(10,2) DEFAULT NULL,
   `descricao` text,
   `categoria_id` int(11) DEFAULT NULL,
-  `usado` tinyint(1) DEFAULT '0'
+  `usado` tinyint(1) DEFAULT '0',
+  `isbn` varchar(255) DEFAULT NULL,
+  `tipoProduto` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `produtos`
 --
 
-INSERT INTO `produtos` (`id`, `nome`, `preco`, `descricao`, `categoria_id`, `usado`) VALUES
-(27, 'Peteca', '12.00', 'Peteca da boa', NULL, 0),
-(39, 'Fone de ouvido', '43.00', 'Philips', 3, 0),
-(40, 'Butico do Serjo', '10.00', 'Sujo', 1, 0);
+INSERT INTO `produtos` (`id`, `nome`, `preco`, `descricao`, `categoria_id`, `usado`, `isbn`, `tipoProduto`) VALUES
+(27, 'Peteca', '12.00', 'Peteca da boa', NULL, 0, NULL, NULL),
+(51, 'Livro de Java', '60.00', 'Casa Codigo', 0, 0, '567', 'Livro'),
+(52, 'Moto', '60000.00', 'Boa moto!', 3, 1, '', 'Produto'),
+(57, 'Senhor dos Aneis', '120.00', 'bom', 2, 0, '11', 'Livro'),
+(58, 'Senhor dos Aneis', '120.00', 'qq', 2, 0, '21212', 'Ebook');
 
 -- --------------------------------------------------------
 
@@ -118,7 +122,7 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT for table `produtos`
 --
 ALTER TABLE `produtos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 --
 -- AUTO_INCREMENT for table `usuarios`
 --
