@@ -24,3 +24,7 @@ footer.footer {
 footer.footer p {
   padding: 10px;
 }
+
+th {
+  text-align: center;
+}

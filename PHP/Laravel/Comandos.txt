@@ -1,0 +1,8 @@
+Cria uma nova migration:
+------------------------
+php artisan make:migration adiciona_tamanho_no_produto
+
+
+Executa a migrations:
+---------------------
+php artisan migrate
