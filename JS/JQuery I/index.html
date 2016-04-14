@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JQuery - Ajax</title>
+
+	<style>
+		ul {list-style-type: none;}
+	</style>
+</head>
+<body>
+
+	<button id="botao-atualiza">Teste</button>
+	<button id="botao-limpa">Limpa</button>
+
+	<ul>
+		<li id="lista"></li>
+	</ul>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+	<script>
+		$('#botao-atualiza').click(function(){
+			$.ajax({
+		        //url: 'http://mirrorfashion.caelum.com.br/treinamentos', 
+		        url: 'http://www.w3schools.com/website/customers_mysql.php',
+		        dataType: 'json', 
+		        success: function(retorno) {
+		           	$.each(retorno, function() {
+		            	var treinamento = this;
+		              	var conteudo = treinamento.City + " - " + treinamento.Country;
+		              	console.log(conteudo);
+		              	$('<li>').text(conteudo).css('color', 'green').appendTo('#lista');
+		           	});
+		        }
+			});
+		});
+	</script>
+
+	<script>
+		$('#botao-limpa').click(function(){
+			$("li").empty();
+		});
+	</script>
+</body>
+</html>

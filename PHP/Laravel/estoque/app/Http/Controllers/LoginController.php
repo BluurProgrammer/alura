@@ -16,16 +16,24 @@ class LoginController extends Controller {
 
     public function login() {
    		$credenciais = Request::only('email','password');
-
-   		if (Auth::attempt($credenciais)) {
-   			return 'Usuário está logado com sucesso.';
-   		}
-
-   		return 'Usuário não existe.';
+ 		if(Auth::attempt($credenciais)) {
+            return redirect('/');
+        }
+        //Redirecionar para formulario de registro
+        return 'Usuário não existe.';
     }
 
     public function logout() {
         Auth::logout();
         return redirect ('/');
     }
+
+    public function userRegister() {
+        return view ('user.register');
+    }
+    
+    public function register() {
+        return "Ruuulex";
+    }
+
 }

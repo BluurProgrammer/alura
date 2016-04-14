@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\DB;
 use Request;
 use estoque\Produto;
+use estoque\Categoria;
 use Validator;
 use estoque\Http\Requests\ProdutoRequest;
 
@@ -14,8 +15,14 @@ class ProdutoController extends Controller {
     //}
 
 	//Construtor com regras de acesso específicando os métodos
+    // public function __construct() {
+    //     $this->middleware('autorizador', 
+    //         ['only' => ['novo', 'remove']]);
+    // }
+
+    //Construtor com regras de acesso específicando os métodos
     public function __construct() {
-        $this->middleware('autorizador', 
+        $this->middleware('adminFilter', 
             ['only' => ['novo', 'remove']]);
     }
 
@@ -44,7 +51,7 @@ class ProdutoController extends Controller {
 	}
 
 	public function novo() {
-		return view ('produto.formulario');
+		return view ('produto.formulario')->with('categorias', Categoria::all());
 	}
 
 	public function adiciona(ProdutoRequest $request) {
@@ -52,20 +59,8 @@ class ProdutoController extends Controller {
 		// $produto = new Produto($params);
 		// $produto->save();
 
-		//Validação para poucos dados, a mais completa esta em app/http/required
-		// $validator = Validator::make(
-		// 	['nome' => Request::input('nome')],
-		// 	['nome' => 'required|min:3']
-		// );
-
-		// if ($validator-> fails()) {
-		// 	$msgs = $validator->messages();
-		// 	dd($msgs);
-		// 	return redirect('/produtos/novo');
-		// }
-
 		Produto::create($request->all()); //Realiza o mesmo procedimento das linhas acima
-		return redirect('/produtos')->withInput();
+		return redirect('/')->withInput();
 	}
 
 	public function edita($id) {

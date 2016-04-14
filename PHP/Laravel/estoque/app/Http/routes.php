@@ -12,12 +12,16 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/produtos/download', 'ProdutoController@download');
 	Route::get('/produtos/json', 'ProdutoController@listaJson');
 	
-	Route::get('/login', 'LoginController@form');
-	Route::post('/login', 'LoginController@login');
-	Route::get('/logout', 'LoginController@logout');
+	//Route::get('/login', 'LoginController@form');
+	//Route::post('/login', 'LoginController@login');
+	//Route::get('/logout', 'LoginController@logout');
+
+	//Route::get('/register', 'LoginController@userRegister');
+	//Route::post('/register', 'LoginController@register');
 
 	Route::auth();
-    Route::get('/home', 'HomeController@index');
+    //Route::get('/home', 'HomeController@index');
 
     route::get('/hora', 'TestController@hora');
+
 });
