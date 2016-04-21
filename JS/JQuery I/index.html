@@ -21,14 +21,14 @@
 	<script>
 		$('#botao-atualiza').click(function(){
 			$.ajax({
-		        //url: 'http://mirrorfashion.caelum.com.br/treinamentos', 
 		        url: 'http://www.w3schools.com/website/customers_mysql.php',
 		        dataType: 'json', 
 		        success: function(retorno) {
 		           	$.each(retorno, function() {
 		            	var treinamento = this;
 		              	var conteudo = treinamento.City + " - " + treinamento.Country;
-		              	console.log(conteudo);
+
+		              	console.log(treinamento);
 		              	$('<li>').text(conteudo).css('color', 'green').appendTo('#lista');
 		           	});
 		        }
