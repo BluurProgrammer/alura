@@ -1,0 +1,55 @@
+[data-color="first"] {
+	background-color: #45AAEE;
+}
+
+[data-color="second"] {
+	background-color: #ff1010;
+}
+
+[data-color="third"] {
+	background-color: #76ef40;
+}
+
+[data-color="fourth"] {
+	background-color: #EBEF40; 
+}
+
+.card {
+	display: inline-block;
+	box-sizing: border-box;
+	padding: 16px;
+	width: 25%;
+	position: relative;
+}
+
+.wrap-card-colors {
+	position: absolute;
+	top: -16px;	
+	left: 0;
+}
+
+.card-colors {
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	text-indent: -9999px;
+	overflow: hidden;
+	border-radius: 50%;
+	border: 2px solid rgba(0,0,0,0.5);
+}
+
+.card-colors_colorFirst {
+	background-color: #45AAEE;
+}
+
+.card-colors_colorSecond {
+	background-color: #ff1010;
+}
+
+.card-colors_colorThird {
+	background-color: #76ef40;
+}
+
+.card-colors_colorFourth {
+	background-color: #EBEF40; 
+}

@@ -1,18 +1,14 @@
-module.exports = function(app) {
-	app.get('/produtos',function(req, res) {
-		var mysql = require('mysql');
-		var connection = mysql.createConnection({
-			host : 'localhost',
-			user : 'root',
-			password : '',
-			database : 'casadocodigo_nodejs'
-		});
+module.exports = function(app){
+	app.get('/produtos',function(req, res){
+		
+		var connection = app.infra.connectionFactory();
+		var produtosBanco = app.infra.produtosBanco;
 
-		connection.query('select * from livros', function(err,results) {
-			//res.send(results); JSON
-			res.render('produtos/lista',{lista:results});
+		produtosBanco.lista(connection,function(erros,resultados){
+			res.render('produtos/lista',{lista:resultados});
 		});
 
 		connection.end();
 	});
+
 }
