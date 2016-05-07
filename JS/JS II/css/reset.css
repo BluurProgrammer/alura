@@ -2,9 +2,10 @@
 	margin: 0;
 	padding: 0;
 	border: none;
+	outline: none;
 }
 
-body {
+body, textarea {
 	font-family: 'Verdana', sans-serif;
 }
 

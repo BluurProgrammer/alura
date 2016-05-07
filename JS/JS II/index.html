@@ -5,6 +5,7 @@
 	<title>Ceep</title>
 	<link rel="stylesheet" href="css/block/header.css">
 	<link rel="stylesheet" href="css/block/card.css">
+	<link rel="stylesheet" href="css/block/newCard.css">
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/base.css">
 </head>
@@ -17,57 +18,70 @@
 		</nav>
 	</header>
 
+	<form action="" class="newCard">
+		<textarea  class="newCard-content" name="" id="" cols="30" rows="10" placeholder="Digite aqui"></textarea>
+		<input class="newCard-action" type="submit" value="Salvar">
+	</form>
+
 	<section class="container">
-		<ol>
+		<ol class="wrap-card">
 			<li class="card" data-color="first">
 				<nav class="wrap-card-colors">
 					<ul>
-						<li class="card-colors" data-color="first" ><a href="">Azul</a></li>
+						<li class="card_delete icon-delete"><a href="">Excluir</a></li>
+						<li class="card_edit icon-edit"><a href="">Editar</a></li>
+						<li class="card-colors isActive" data-color="first" ><a href="">Azul</a></li>
 						<li class="card-colors" data-color="second"><a href="">Vermelho</a></li>
 						<li class="card-colors" data-color="third"><a href="">Verde</a></li>
 						<li class="card-colors" data-color="fourth"><a href="">Amarelo</a></li>
 					</ul>
 				</nav>
-				<p>
+				<p class="card-content" contenteditable="false">
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, nemo, ab! Aperiam ipsam laudantium, voluptates deleniti nostrum officia inventore quis quae, dicta. Cumque quibusdam repudiandae nesciunt quisquam, eos minus! Molestiae, quia eligendi. Soluta tempore, voluptatem doloribus deserunt, accusantium suscipit sapiente.
 				</p>
 			</li><!-- 
 		 --><li class="card" data-color="second">
 		 		<nav class="wrap-card-colors">
 		 			<ul>
-		 				<li class="card-colors" data-color="first" data-teste="seinaofi"><a href="">Azul</a></li>
-		 				<li class="card-colors" data-color="second"><a href="">Vermelho</a></li>
+		 				<li class="card_delete icon-delete"><a href="">Excluir</a></li>
+		 				<li class="card_edit icon-edit"><a href="">Editar</a></li>
+		 				<li class="card-colors" data-color="first"><a href="">Azul</a></li>
+		 				<li class="card-colors isActive" data-color="second"><a href="">Vermelho</a></li>
 		 				<li class="card-colors" data-color="third"><a href="">Verde</a></li>
 		 				<li class="card-colors" data-color="fourth"><a href="">Amarelo</a></li>
 		 			</ul>
 		 		</nav>
-		 		<p>
+		 		<p class="card-content">
 		 			Ex doloribus, animi vero, quidem numquam quae. Est accusamus minima repudiandae, nisi architecto esse voluptas inventore! Quo dicta voluptatum nobis sapiente eveniet blanditiis ut consequuntur reprehenderit ipsam, quam est officiis rerum delectus, dolores reiciendis ad sequi cupiditate, perferendis, facere facilis.
 		 		</p>
 		 	</li><!--
 		--><li class="card" data-color="third">
 				<nav class="wrap-card-colors">
 					<ul>
+						<li class="card_delete icon-delete"><a href="">Excluir</a></li>
+						<li class="card_edit icon-edit"><a href="">Editar</a></li>
 						<li class="card-colors" data-color="first"><a href="">Azul</a></li>
 						<li class="card-colors" data-color="second"><a href="">Vermelho</a></li>
-						<li class="card-colors" data-color="third"><a href="">Verde</a></li>
+						<li class="card-colors isActive" data-color="third"><a href="">Verde</a></li>
 						<li class="card-colors" data-color="fourth"><a href="">Amarelo</a></li>
 					</ul>
 				</nav>
-				<p>
+				<p class="card-content">
 					Omnis error quaerat illo, asperiores debitis consequatur architecto reprehenderit cupiditate ea ducimus a incidunt, libero veritatis delectus accusamus obcaecati cumque assumenda corporis rerum beatae fuga magnam! Ipsum consectetur odit aliquid nemo sit reiciendis blanditiis quam eveniet, obcaecati, eius porro totam!
 				</p>
 			</li><!--
 		--><li class="card" data-color="fourth">
 				<nav class="wrap-card-colors">
 					<ul>
+						<li class="card_delete icon-delete"><a href="">Excluir</a></li>
+						<li class="card_edit icon-edit"><a href="">Editar</a></li>
 						<li class="card-colors" data-color="first"><a href="">Azul</a></li>
 						<li class="card-colors" data-color="second"><a href="">Vermelho</a></li>
 						<li class="card-colors" data-color="third"><a href="">Verde</a></li>
-						<li class="card-colors" data-color="fourth"><a href="">Amarelo</a></li>
+						<li class="card-colors isActive" data-color="fourth"><a href="">Amarelo</a></li>
 					</ul>
 				</nav>
-				<p>
+				<p class="card-content">
 					Beatae quisquam veniam, enim, necessitatibus voluptatem distinctio hic id earum perspiciatis numquam quibusdam esse, iste harum nam saepe eum cum praesentium et laudantium ex aliquam rerum voluptatum. Illo rem laborum blanditiis, eius nostrum, quas ducimus quidem, labore numquam, unde voluptas.
 				</p>
 			</li>
@@ -75,6 +89,7 @@
 	</section>
 	
 	<script src="js/block/card.js"></script>
+	<script src="js/block/newCard.js"></script>
 
 </body> 
 </html>

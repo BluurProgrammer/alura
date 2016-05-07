@@ -26,16 +26,28 @@
 	position: absolute;
 	top: -16px;	
 	left: 0;
+	opacity: 0;
+	transition: opacity 0.2s linear;
 }
+
+.card:hover .wrap-card-colors {
+	opacity: 1;
+
+} 
 
 .card-colors {
 	display: inline-block;
+	box-sizing: border-box;
 	width: 32px;
 	height: 32px;
 	text-indent: -9999px;
 	overflow: hidden;
 	border-radius: 50%;
 	border: 2px solid rgba(0,0,0,0.5);
+}
+
+.card-colors.isActive {
+	border-width: 4px;
 }
 
 .card-colors_colorFirst {
@@ -52,4 +64,54 @@
 
 .card-colors_colorFourth {
 	background-color: #EBEF40; 
+}
+
+.card_delete {
+	display: inline-block;
+	box-sizing: border-box;
+	width: 32px;
+	height: 32px;
+	text-indent: -9999px;
+	overflow: hidden;
+	border-radius: 50%;
+	border: 2px solid rgba(0,0,0,0.5);
+}
+
+.icon-delete {
+	background-color: #fff;
+	background-image: url("../../img/delete.svg");
+	background-repeat: no-repeat;
+	background-size: 70%;
+	background-position: center;
+}
+
+.card_edit {
+	display: inline-block;
+	box-sizing: border-box;
+	width: 32px;
+	height: 32px;
+	text-indent: -9999px;
+	overflow: hidden;
+	border-radius: 50%;
+	border: 2px solid rgba(0,0,0,0.5);
+}
+
+.icon-edit {
+	background-color: #fff;
+	background-image: url("../../img/edit.svg");
+	background-repeat: no-repeat;
+	background-size: 60%;
+	background-position: center;
+}
+
+.isActive {
+	border-width: 4px;
+}
+
+.card-content[contenteditable="true"] {
+	outline: 2px dashed rgba(0, 0, 0, 0.5);
+}
+
+.card-colors, .card_delete, .card_edit {
+	cursor: pointer;
 }
