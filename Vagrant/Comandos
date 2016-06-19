@@ -1,0 +1,40 @@
+Configuração básica:
+Vagrant.configure("2") do |config|
+    config.vm.box = "hashicorp/precise32" #Configurando uma imagem Ubuntu
+    config.vm.define :web do |web_config| #Nome da máquina é web
+        #web_config.vm.network "private_network", ip: "192.168.0.33"
+        web_config.vm.network "public_network", :bridge => "en0: Wi-Fi (Airport)", :ip => "192.168.1.33"
+    end
+end
+
+Iniciar a máquina virtual:
+vagrant up
+
+Acessar a imagem:
+vagrant ssh
+
+Restart:
+vagrant reload
+
+Destruir a máquina:
+vagrant destroy
+
+Instalar os pacotes da configuração do arquivo web.pp:
+sudo puppet /vagrant/manifests/web.pp
+
+Aplicar as configurações do arquivo web.pp:
+sudo puppet apply /vagrant/manifest/web.pp
+
+
+
+Configuração Embratel Cloud:
+----------------------------
+sudo dpkg-reconfigure virtualbox-dkms
+
+sudo apt-get install linux-headers-$(uname -r)
+
+dpkg -i vagrant_1.2.4_i686.deb
+
+wget http://files.vagrantup.com/packages/0219bb87725aac28a97c0e924c310cc97831fd9d/vagrant_1.2.4_i686.deb
+
+sudo apt-get install dpkg-dev virtualbox-dkms
