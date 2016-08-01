@@ -24,17 +24,3 @@ sudo puppet /vagrant/manifests/web.pp
 
 Aplicar as configurações do arquivo web.pp:
 sudo puppet apply /vagrant/manifest/web.pp
-
-
-
-Configuração Embratel Cloud:
-----------------------------
-sudo dpkg-reconfigure virtualbox-dkms
-
-sudo apt-get install linux-headers-$(uname -r)
-
-dpkg -i vagrant_1.2.4_i686.deb
-
-wget http://files.vagrantup.com/packages/0219bb87725aac28a97c0e924c310cc97831fd9d/vagrant_1.2.4_i686.deb
-
-sudo apt-get install dpkg-dev virtualbox-dkms
